@@ -11,7 +11,7 @@
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
     "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
-    "test" : "ts-node src/Website.test.ts"
+    "test": "ts-node src/Website.test.ts"
   },
   "author": "Aurélien Pasteau",
   "license": "ISC",
