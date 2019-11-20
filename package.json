@@ -1,0 +1,35 @@
+{
+  "name": "minidatadog",
+  "version": "1.0.0",
+  "description": "Aurélien Pasteau's submission of the Datadog take-home project",
+  "main": "./lib/index.js",
+  "bin": {
+    "minidatadog": "./lib/index.js"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "create": "npm run build && npm run test",
+    "build": "tsc -p .",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install",
+    "test" : "ts-node src/Website.test.ts"
+  },
+  "author": "Aurélien Pasteau",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cli-table": "^0.3.0",
+    "axios": "^0.19.0",
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "cli-table": "^0.3.1",
+    "commander": "^4.0.1",
+    "figlet": "^1.2.4",
+    "inquirer": "^7.0.0",
+    "mongoose": "^5.7.11",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.8",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  }
+}
