@@ -10,7 +10,7 @@ import * as db from './database';
 import * as requests from './requests';
 import * as models from './models';
 const chalk = require('chalk');
-
+const size = require('window-size');
 import Table from 'cli-table';
 import { Website } from './Website';
 
@@ -98,9 +98,10 @@ export const monitor = async () : Promise<void> => {
 
 const printTable = (websites : Website[], timeInterval : number) : void => {
     console.log(chalk.bold.cyan(new Date().toLocaleString("en-GB", {timeZone : 'UTC'}) + " : Stats over the last " + timeInterval + " minutes : \n"));
+    const windowWidth : number = size.get().width;
     const table : Table = new Table({
         head : ["URL", "Availab. (%)", "Max. resp. time (ms)", "Min. resp. time (ms)", "Avg. resp. time (ms)", "Prop. 1** status (%)", "Prop. 2** status (%)", "Prop. 3** status (%)", "Prop. 4** status (%)", "Prop. 5** status (%)" ],
-        colWidths: [35, 14, 22, 22, 22, 22, 22, 22, 22, 22]
+        colWidths: [35, 14, 22, 22, 22, 22, 22, 22, 22, 22].map((w : number) => Math.floor(w*windowWidth/237))
     });
     websites.forEach((website : Website) => {
         table.push(website.getNewStats(timeInterval));
