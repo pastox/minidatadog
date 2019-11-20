@@ -49,6 +49,30 @@ program
     });
 
 /******************************************************************************************************************************
+   Define the command 'deleteWebsite'. The user is then asked which of the saved websites he/she wants to delete
+*******************************************************************************************************************************/
+
+program
+    .command("deleteWebsite")
+    .description("delete a website from the list of websites to monitor")
+    .action(() : void => {
+        prompt(utils.getDeleteWebsiteQuestions()).then((answers : {url : string}) => {
+            functions.deleteWebsite(answers.url);
+        })
+    });
+
+/******************************************************************************************************************************
+   Define the command 'getWebsites' that shows the users all the websites currently saved
+*******************************************************************************************************************************/
+
+program
+    .command("getWebsites")
+    .description("get the list of websites to monitor")
+    .action(() : void => {
+        functions.getWebsites();
+    });
+
+/******************************************************************************************************************************
     Define the command 'monitor' that leads the user to the monitoring view
 *******************************************************************************************************************************/
 

@@ -39,6 +39,29 @@ export const addWebsite = async (url : string, checkInterval : number, checkIfEx
 }
 
 /******************************************************************************************************************************
+    Function that deletes a website from the database based on its url
+*******************************************************************************************************************************/
+
+export const deleteWebsite = async (url : string) : Promise<void> => {
+    console.log(chalk.bold("Loading..."));
+    await db.deleteWebsite(url);
+    console.log(chalk.bold.green("Website " + url + " successfully deleted"));
+}
+
+/******************************************************************************************************************************
+    Function that gets and displays all the websites in the database
+*******************************************************************************************************************************/
+
+export const getWebsites = async () : Promise<void> => {
+    console.log(chalk.bold("Loading..."));
+    const websites : Website[] = await db.getWebsites();
+    console.log(chalk.cyan.bold("Your websites are : "))
+    websites.forEach(async (website : Website) => {
+        console.log(chalk.bold.white("- " + website.getUrl() + " --- Check Interval : " + website.getCheckInterval() + " seconds"));
+    });
+}
+
+/******************************************************************************************************************************
     Function that monitors all the website : 
         - prints the stats of all saved websites every 10 seconds over 10 minutes
         - prints all the alerts that have been raised since the beginning of the monitoring every 10 seconds

@@ -40,3 +40,11 @@ export const getWebsites = async () : Promise<Website[]> => {
     const websites : Website[] = dbRes.map((wb : {url : string, checkInterval : number}) => new Website(wb.url, wb.checkInterval))
     return websites;
 }
+
+/******************************************************************************************************************************
+    Function that deletes a website from the database
+*******************************************************************************************************************************/
+
+export const deleteWebsite = async (url : string) : Promise<void> => {
+    await models.Website.deleteOne({url});
+}
