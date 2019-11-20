@@ -86,7 +86,19 @@ It is a small application I created and deployed to Heroku and that responds wit
 If you want to learn more about the code, feel free to visit the different files; every function, method or piece of code is commented
 
 ```bash
-    |-- README.md
+    ├── README.md
+    ├── package.json
+    ├── src
+    │   ├── index.ts # project entry point : defines the commands a user can use 
+    │   ├── database.ts # database interfacing code
+    │   ├── models.ts # types used by the application and mongoose Schema for Website
+    │   ├── functions.ts # functions called when launching the various CLI commands
+    │   ├── requests.ts # HTTP requests code
+    │   ├── Website.ts # class Website with methods for ping, stats and alerts logics
+    │   ├── utils.ts # functions and variables for the user interaction for several commands
+    │   ├── Queue.ts # class for a FIFO queue
+    │   └── Website.test.ts # testing file for the Website class; contains a test for the alerts logic
+    └── tsconfig.json
 
 ```
 
