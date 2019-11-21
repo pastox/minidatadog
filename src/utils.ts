@@ -48,7 +48,7 @@ export const getDeleteWebsiteQuestions = async () : Promise<any[]> => {
   return [
     {
       type : 'list',
-      name : 'website choice',
+      name : 'url',
       message : 'Select the website you want to delete from your monitoring list : (Ctrl + C to quit)',
       choices : urls
     }

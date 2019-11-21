@@ -55,9 +55,13 @@ program
 program
     .command("deleteWebsite")
     .description("delete a website from the list of websites to monitor")
-    .action(() : void => {
-        prompt(utils.getDeleteWebsiteQuestions()).then((answers : {url : string}) => {
-            functions.deleteWebsite(answers.url);
+    .action(() : void => { 
+        utils.getDeleteWebsiteQuestions()
+        .then((deleteWebsiteQuestions : any[]) => {
+            prompt(deleteWebsiteQuestions)
+            .then((answers : {url : string}) => {
+                functions.deleteWebsite(answers.url);
+            })
         })
     });
 

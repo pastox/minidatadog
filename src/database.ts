@@ -39,7 +39,6 @@ export const getWebsites = async () : Promise<Website[]> => {
     const dbRes = await models.Website.find();
     const websites : Website[] = dbRes.map((wb : {url : string, checkInterval : number}) => new Website(wb.url, wb.checkInterval))
     return websites;
-    process.exit();
 }
 
 /******************************************************************************************************************************
@@ -48,5 +47,4 @@ export const getWebsites = async () : Promise<Website[]> => {
 
 export const deleteWebsite = async (url : string) : Promise<void> => {
     await models.Website.deleteOne({url});
-    process.exit();
 }

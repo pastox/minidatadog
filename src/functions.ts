@@ -46,6 +46,7 @@ export const deleteWebsite = async (url : string) : Promise<void> => {
     console.log(chalk.bold("Loading..."));
     await db.deleteWebsite(url);
     console.log(chalk.bold.green("Website " + url + " successfully deleted"));
+    process.exit();
 }
 
 /******************************************************************************************************************************
@@ -55,10 +56,11 @@ export const deleteWebsite = async (url : string) : Promise<void> => {
 export const getWebsites = async () : Promise<void> => {
     console.log(chalk.bold("Loading..."));
     const websites : Website[] = await db.getWebsites();
-    console.log(chalk.cyan.bold("Your websites are : "))
+    console.log(chalk.cyan.bold("Your websites are : "));
     websites.forEach(async (website : Website) => {
         console.log(chalk.bold.white("- " + website.getUrl() + " --- Check Interval : " + website.getCheckInterval() + " seconds"));
     });
+    process.exit();
 }
 
 /******************************************************************************************************************************
