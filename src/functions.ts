@@ -45,7 +45,7 @@ export const addWebsite = async (url : string, checkInterval : number, checkIfEx
 export const deleteWebsite = async (url : string) : Promise<void> => {
     console.log(chalk.bold("Loading..."));
     await db.deleteWebsite(url);
-    console.log(chalk.bold.green("Website " + url + " successfully deleted"));
+    console.log(chalk.bold.green("Website " + url + " successfully deleted \n"));
     process.exit();
 }
 
@@ -61,9 +61,10 @@ export const getWebsites = async () : Promise<void> => {
         websites.forEach(async (website : Website) => {
             console.log(chalk.bold.white("- " + website.getUrl() + " --- Check Interval : " + website.getCheckInterval() + " seconds"));
         });
+        console.log("\n");
     }
     else {
-        console.log(chalk.red.bold("You haven't saved any websites yet..."));
+        console.log(chalk.red.bold("You haven't saved any websites yet... \n"));
     }
     process.exit();
 }

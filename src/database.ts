@@ -20,11 +20,11 @@ const db = mongoose.connect("mongodb://datadoguser:datadog2019@ds031349.mlab.com
 export const addWebsite = async (website : Website) : Promise<void> => {
     await models.Website.create({url : website.getUrl(), checkInterval : website.getCheckInterval()}, (err : any) => {
         if (err) {
-            console.log(chalk.red.bold("Failed to save new website... Make sure your arguments are a url and an integer"));
+            console.log(chalk.red.bold("Failed to save new website... Make sure your arguments are a url and an integer \n"));
             process.exit();
         }
         else {
-            console.log(chalk.green.bold("New website successully added"));
+            console.log(chalk.green.bold("New website successully added \n"));
             process.exit();
         }
     });
