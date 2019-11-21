@@ -82,7 +82,7 @@ program
 
 program
     .command("monitor")
-    .description("access the monitoring view with metrics for the different websites")
+    .description("access the monitoring view with metrics and alerts for the different websites")
     .action(() : void => {
         functions.monitor();
     })
@@ -95,7 +95,7 @@ program
 
 program
     .command("addUnavailableWebsite")
-    .description("adds a website that is in average available only 80% of the time with a checkInterval of 7 seconds")
+    .description("adds a website that is in average available only 80% of the time")
     .action(() : void => {
         console.log(chalk.bold.white("This will add the website 'https://random-res-app.herokuapp.com/' that is in average available 80% of the time"))
         prompt(utils.addUnavailableWebsiteQuestions).then((answers : {checkInterval : number}) => {
