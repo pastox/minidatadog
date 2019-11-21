@@ -56,10 +56,15 @@ export const deleteWebsite = async (url : string) : Promise<void> => {
 export const getWebsites = async () : Promise<void> => {
     console.log(chalk.bold("Loading..."));
     const websites : Website[] = await db.getWebsites();
-    console.log(chalk.cyan.bold("Your websites are : "));
-    websites.forEach(async (website : Website) => {
-        console.log(chalk.bold.white("- " + website.getUrl() + " --- Check Interval : " + website.getCheckInterval() + " seconds"));
-    });
+    if (websites.length > 0) {
+        console.log(chalk.cyan.bold("Your websites are : "));
+        websites.forEach(async (website : Website) => {
+            console.log(chalk.bold.white("- " + website.getUrl() + " --- Check Interval : " + website.getCheckInterval() + " seconds"));
+        });
+    }
+    else {
+        console.log(chalk.red.bold("You haven't saved any websites yet..."));
+    }
     process.exit();
 }
 
