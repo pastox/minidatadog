@@ -34,7 +34,7 @@ export const addUnavailableWebsiteQuestions = [
   {
     type : 'input',
     name : 'checkInterval',
-    message : 'Enter the check interval (in seconds) : (Ctrl + C to quit)'
+    message : 'Enter the check interval (in seconds). Choose a small check interval if you want to have more chances to see some alerts quick : (Ctrl + C to quit)'
   }
 ]
 
