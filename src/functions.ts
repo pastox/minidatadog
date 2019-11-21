@@ -28,7 +28,7 @@ export const addWebsite = async (url : string, checkInterval : number, checkIfEx
             await db.addWebsite(website);
         }
         else {
-            console.log(chalk.red.bold("The given url doesn't lead to any working website..."));
+            console.log(chalk.red.bold("The given url doesn't lead to any working website... Check that you have a working internet connexion and that the url is spelled right and leads to a website that is available"));
             process.exit();
         }
     }
@@ -85,6 +85,7 @@ export const monitor = async () : Promise<void> => {
         process.exit();
     }
     console.log(chalk.bold.white("For a better monitoring experience, display your console in full screen! \n"));
+    console.log(chalk.bold.white("Make sure you have an active internet connexion for a relevant monitoring experience \n"));
     // print the websites
     console.log(chalk.cyan.bold("Your websites are : "))
     websites.forEach(async (website : Website) => {
